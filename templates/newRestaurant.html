@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
       <!-- navbar -->
@@ -22,7 +24,7 @@
       </div>
     </nav>
 
-    <h1>New Restaurante</h1>
+    <h1>Novo Curso</h1>
     <div class="row">
       <form class="col s12" action='{{ url_for('newRestaurant')}}' method='POST'>
         <div class="row">
@@ -32,9 +34,15 @@
           </div>
           <div class="row">
             <div class="col s12">
-              <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit</button>
-              <a class="waves-effect waves-light btn-large" href='{{ url_for('showRestaurant') }}'>cancel</a>
+              <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Criar<i class="material-icons right">create</i></button>
+              <a class="waves-effect waves-light btn-large" href='{{ url_for('showRestaurant') }}'>Cancelar</a>
             </div>
           </div>
       </form>
     </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+  </body>
+
+</html>

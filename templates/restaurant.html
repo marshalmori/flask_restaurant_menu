@@ -3,17 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
       <!-- navbar -->
       <nav>
         <div class="nav-wrapper">
-          <a href='{{ url_for('showRestaurant') }}' class="brand-logo">Restaurantes</a>
+          <a href='{{ url_for('showRestaurant') }}' class="brand-logo">Restaurant</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href='{{ url_for('newRestaurant') }}'>Novo</a></li>
             <!-- <li><a href="badges.html">Components</a></li>
@@ -22,17 +24,45 @@
         </div>
       </nav>
 
-    <h1>All Restaurants</h1>
+    <h3>Cursos</h3>
 
-    <div>
+          <table class="highlight">
+            <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Restaurante</th>
+                  <th>Editar</th>
+                  <th>Deletar</th>
+              </tr>
+            </thead>
+
+            <tbody>
           {% for rest in restaurant %}
-            <ul>
-                <a href='{{ url_for('showMenu', restaurant_id = rest.id) }}'>
-                  <li> <strong> {{ rest.name }} </strong> </li>
-                </a>
-            </ul>
+              <tr>
+                <td>
+                  <h6>{{ 1 }}</h6>
+                </td>
+                <td>
+                  <a href='{{ url_for('showMenu', restaurant_id = rest.id) }}' class="collection-item">
+                    <strong> {{ rest.name }} </strong>
+                  </a>
+                </td>
+                <td>
+                  <a class="btn-floating  waves-effect waves-light blue" href='{{ url_for('editRestaurant', restaurant_id = rest.id) }}'>
+                    <i class="material-icons">edit</i>
+                  </a>
+                </td>
+                <td>
+                  <a class="btn-floating waves-effect waves-light red" href='{{ url_for('deleteRestaurant', restaurant_id = rest.id) }}'>
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
           {% endfor %}
-    </div>
+          </table>
 
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="/static/js/materialize.min.js"></script>
   </body>
 </html>
