@@ -10,6 +10,7 @@
 
      <!--Let browser know website is optimized for mobile-->
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
   <body>
       <!-- navbar -->
       <nav>
@@ -24,6 +25,11 @@
       </nav>
 
       <h3>Menu - {{ restaurant.name }}</h3>
+      <a href='{{ url_for('newMenuItem', restaurant_id = restaurant.id )}}' class="waves-effect waves-light btn-large">
+        <i class="material-icons left">edit</i>
+        Novo Item
+      </a>
+
       <table class="highlight">
         <thead>
           <tr>
@@ -32,6 +38,8 @@
               <th>Description</th>
               <th>Price</th>
               <th>Course</th>
+              <th>Editar</th>
+              <th>Deletar</th>
           </tr>
         </thead>
 
@@ -52,6 +60,16 @@
             </td>
             <td>
               <h6>{{ item.course }}</h6>
+            </td>
+            <td>
+              <a class="btn-floating  waves-effect waves-light blue" href='{{ url_for('editMenuItem', restaurant_id = item.restaurant_id, menu_id = item.id ) }}'>
+                <i class="material-icons">edit</i>
+              </a>
+            </td>
+            <td>
+              <a class="btn-floating  waves-effect waves-light red" href='{{ url_for('deleteMenuItem', restaurant_id = item.restaurant_id, menu_id = item.id ) }}'>
+                <i class="material-icons">delete</i>
+              </a>
             </td>
           </tr>
         </tbody>
