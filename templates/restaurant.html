@@ -24,43 +24,42 @@
         </div>
       </nav>
 
-    <h3>Cursos</h3>
+      <h3>Restaurantes</h3>
+      <table class="highlight">
+        <thead>
+          <tr>
+              <th>#</th>
+              <th>Restaurante</th>
+              <th>Editar</th>
+              <th>Deletar</th>
+          </tr>
+        </thead>
 
-          <table class="highlight">
-            <thead>
-              <tr>
-                  <th>#</th>
-                  <th>Restaurante</th>
-                  <th>Editar</th>
-                  <th>Deletar</th>
-              </tr>
-            </thead>
-
-            <tbody>
-          {% for rest in restaurant %}
-              <tr>
-                <td>
-                  <h6>{{ 1 }}</h6>
-                </td>
-                <td>
-                  <a href='{{ url_for('showMenu', restaurant_id = rest.id) }}' class="collection-item">
-                    <strong> {{ rest.name }} </strong>
-                  </a>
-                </td>
-                <td>
-                  <a class="btn-floating  waves-effect waves-light blue" href='{{ url_for('editRestaurant', restaurant_id = rest.id) }}'>
-                    <i class="material-icons">edit</i>
-                  </a>
-                </td>
-                <td>
-                  <a class="btn-floating waves-effect waves-light red" href='{{ url_for('deleteRestaurant', restaurant_id = rest.id) }}'>
-                    <i class="material-icons">delete</i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          {% endfor %}
-          </table>
+        <tbody>
+      {% for rest in restaurant %}
+          <tr>
+            <td>
+              <h6>{{ 1 }}</h6>
+            </td>
+            <td>
+              <a href='{{ url_for('showMenu', restaurant_id = rest.id) }}' class="collection-item">
+                <strong> {{ rest.name }} </strong>
+              </a>
+            </td>
+            <td>
+              <a class="btn-floating  waves-effect waves-light blue" href='{{ url_for('editRestaurant', restaurant_id = rest.id) }}'>
+                <i class="material-icons">edit</i>
+              </a>
+            </td>
+            <td>
+              <a class="btn-floating waves-effect waves-light red" href='{{ url_for('deleteRestaurant', restaurant_id = rest.id) }}'>
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      {% endfor %}
+      </table>
 
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="/static/js/materialize.min.js"></script>
