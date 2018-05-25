@@ -24,6 +24,47 @@
         </div>
       </nav>
 
+      <h5>Edit Menu</h5>
+      <div class="row">
+        <form class="col s12" action='{{ url_for('editMenuItem', restaurant_id = restaurant_id, menu_id = item.id) }}' method='POST'>
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder='{{ item.name }}' id="name" type="text" class="validate" name='name'>
+              <label for="name">Nome</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder='{{ item.description }}' id="description" type="text" class="validate" name='description'>
+              <label for="description">Descrição</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder='{{ item.price }}' id="price" type="text" class="validate" name='price'>
+              <label for="price">Preço</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder='{{ item.course }}' id="price" type="text" class="validate" name='course'>
+              <label for="course">Course</label>
+            </div>
+
+            <!-- <div class="input-field col s6">
+              <select>
+                <option value="" disabled selected>Escolha uma opção</option>
+                <option value="1">Appetizer</option>
+                <option value="2">Entree</option>
+                <option value="3">Dessert</option>
+                <option value="4">Beverage</option>
+              </select>
+              <label>Selecione</label>
+            </div> -->
+
+            <div class="row">
+              <div class="col s12">
+                <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Criar<i class="material-icons right">create</i></button>
+                <a class="waves-effect waves-light btn-large" href='{{ url_for('showMenu', restaurant_id = restaurant_id) }}'>Cancelar</a>
+              </div>
+            </div>
+        </form>
+      </div>
+
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="/static/js/materialize.min.js"></script>
     </body>

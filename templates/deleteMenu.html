@@ -23,8 +23,22 @@
           </ul>
         </div>
       </nav>
-    </body>
-  </html>
+
+      <div class="row">
+        <form class="col s12" action='{{ url_for('deleteMenuItem', restaurant_id = restaurant_id, menu_id = item.id) }}' method='POST'>
+          <div class="row">
+            <h5>Tem certeza que deseja excluir o item <strong>{{ item.name }}</strong>?</h5>
+            <h6> Descrição: {{ item.description }}</h6>
+            <h6> Preço: {{ item.price }}</h6>
+            <h6> Course: {{ item.course }}</h6>
+            <div class="row">
+              <div class="col s12">
+                <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Deletar</button>
+                <a class="waves-effect waves-light btn-large" href='{{ url_for('showMenu', restaurant_id = restaurant_id) }}'>cancel</a>
+              </div>
+            </div>
+        </form>
+      </div>
 
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="/static/js/materialize.min.js"></script>
