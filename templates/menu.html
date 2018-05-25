@@ -23,6 +23,18 @@
           </ul>
         </div>
       </nav>
+      
+      <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+          {% for message in messages %}
+              <li> <strong> {{ message }} </strong> </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    </div>
 
       <h3>Menu - {{ restaurant.name }}</h3>
       <a href='{{ url_for('newMenuItem', restaurant_id = restaurant.id )}}' class="waves-effect waves-light btn-large">
